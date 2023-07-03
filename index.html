@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+    function generateLink() {
+      let ddd = document.form_main.ddd.value;
+      let number = document.form_main.number.value;
+      let url = "https://api.whatsapp.com/send/?phone=55";
+      let end_url = `${url}${ddd}${number}`;
+      document.getElementById("texto").value = end_url;
+    }
+
+    function copiarTexto() {
+        let textoCopiado = document.getElementById("texto");
+        textoCopiado.select();
+        textoCopiado.setSelectionRange(0, 99999)
+        document.execCommand("copy");
+
+        document.getElementById("texto").value = "Link copiado";
+    }
+    </script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rose gerador link Whatsapp</title>
+ 
+    <style>
+        * {
+            margin: 0px; 
+            padding: 0px; 
+            box-sizing: border-box;
+        }
+ 
+        body {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgb(34,152,241);
+            background: linear-gradient(90deg, rgba(34,152,241,1) 0%, rgba(34,175,241,1) 100%);
+        }
+ 
+        input, button {
+            font-size: 25px;
+            border-radius: 10px;
+            border: none;
+            padding: 20px;
+        }
+ 
+        input {
+            background-color: #d4e8ff;
+            color: #06224a;
+            width: 500px;
+        }
+ 
+        input:focus {
+            outline: none;
+        }
+ 
+        button {
+            margin-left: 10px;
+            background-color: #06224a;
+            color: white;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+ 
+ 
+        button:hover {
+            background-color: #010d1f;
+            transition: 0.3s;
+        }
+    </style>
+</head>
+<body>
+
+  <table width="50%">
+    <form name="form_main">
+        <tr>
+      <td>
+        
+      </td>
+      <td>
+        <input type="text" name="ddd" id="ddd"  placeholder="DDD"> 
+      </td>
+      <td></td>
+    </tr>
+
+    <tr>
+      <td>
+        
+      </td>
+      <td>
+        <input type="text" name="number" id="number"  placeholder="Numero">
+      </td>
+      <td>
+        <button type="button" onclick="generateLink()">Gerar</button>
+      </td>
+    </tr>
+
+    <tr>
+      <td colspan="2">
+        
+      </td>
+    </tr>
+  </form>
+    <tr>
+      <td></td>
+      <td>
+        <input type="text" name="texto" id="texto" placeholder="Digite alguma coisa" />
+      </td>
+      <td>
+        <button onclick="copiarTexto()">Copiar</button>
+      </td>
+    </tr>
+
+  </table>
+  <p id="end_url"></p>
+  
+
+
+    
+    
+</body>
+</html>
