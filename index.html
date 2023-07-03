@@ -5,7 +5,7 @@
     function generateLink() {
       let ddd = document.form_main.ddd.value;
       let number = document.form_main.number.value;
-      let url = "https://api.whatsapp.com/send/?phone=55";
+      let url = "https://web.whatsapp.com/send/?phone=55";
       let end_url = `${url}${ddd}${number}`;
       document.getElementById("texto").value = end_url;
     }
