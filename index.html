@@ -18,6 +18,18 @@
 
         document.getElementById("texto").value = "Pronto amor!Link copiado";
     }
+
+    const handlePhone = (event) => {
+      let input = event.target
+      input.value = phoneMask(input.value)
+    }
+
+    const phoneMask = (value) => {
+      if (!value) return ""
+      value = value.replace(/\D/g,'')
+      value = value.replace(/(\d)(\d{4})$/,"$1  $2")
+      return value
+    }
     </script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -91,7 +103,7 @@
         
       </td>
       <td>
-        <input type="text" name="number" maxlength="9"  id="number"  placeholder="Numero">
+        <input type="text" name="number"  maxlength="11" onkeyup="handlePhone(event)" id="number"  placeholder="Numero">
       </td>
       <td>
         <button type="button" onclick="generateLink()">Gerar</button>
