@@ -16,7 +16,7 @@
         textoCopiado.setSelectionRange(0, 99999)
         document.execCommand("copy");
 
-        document.getElementById("texto").value = "Link copiado";
+        document.getElementById("texto").value = "Pronto amor!Link copiado";
     }
     </script>
     <meta charset="UTF-8">
@@ -81,7 +81,7 @@
         
       </td>
       <td>
-        <input type="text" name="ddd" id="ddd"  placeholder="DDD"> 
+        <input type="text" maxlength="2"   name="ddd" id="ddd"  placeholder="DDD"> 
       </td>
       <td></td>
     </tr>
@@ -91,7 +91,7 @@
         
       </td>
       <td>
-        <input type="text" name="number" id="number"  placeholder="Numero">
+        <input type="text" name="number" maxlength="9"  id="number"  placeholder="Numero">
       </td>
       <td>
         <button type="button" onclick="generateLink()">Gerar</button>
@@ -107,7 +107,7 @@
     <tr>
       <td></td>
       <td>
-        <input type="text" name="texto" id="texto" placeholder="Digite alguma coisa" />
+        <input type="text" name="texto" id="texto" placeholder="Calma Amor, vai gerar o link." />
       </td>
       <td>
         <button onclick="copiarTexto()">Copiar</button>
