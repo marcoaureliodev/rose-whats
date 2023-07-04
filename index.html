@@ -8,16 +8,16 @@
       let url = "https://web.whatsapp.com/send/?phone=55";
       let end_url = `${url}${ddd}${number}`;
       document.getElementById("texto").value = end_url;
-      copiarTexto();
+      copiarTexto(end_url);
     }
 
-    function copiarTexto() {
+    function copiarTexto(end_url) {
         let textoCopiado = document.getElementById("texto");
         textoCopiado.select();
         textoCopiado.setSelectionRange(0, 99999)
         document.execCommand("copy");
 
-        document.getElementById("texto").value = "Link copiado com sucesso!";
+        document.getElementById("texto").value = "Copiado: "+end_url;
     }
 
     const handlePhone = (event) => {
@@ -28,7 +28,7 @@
     const phoneMask = (value) => {
       if (!value) return ""
       value = value.replace(/\D/g,'')
-      value = value.replace(/(\d)(\d{4})$/,"$1  $2")
+      value = value.replace(/(\d)(\d{4})$/,"$1$2")
       return value
     }
     </script>
@@ -50,6 +50,7 @@
             align-items: center;
             justify-content: center;
             background: #d1d7db;
+            background-image: url("https://i.pinimg.com/736x/8c/98/99/8c98994518b575bfd8c949e91d20548b.jpg");
         }
  
         input, button {
@@ -60,9 +61,14 @@
         }
  
         input {
-            background-color: #d4e8ff;
+            background-color: #EEFDFA;
             color: #06224a;
             width: 500px;
+        }
+        input .trans
+        {
+            background: transparent;
+            border: none;
         }
  
         input:focus {
@@ -71,8 +77,8 @@
  
         button {
             margin-left: 10px;
-            background-color: #00a884;;
-            color: white;
+            background-color: #DAF7F3;;
+            color: #6DCCA6;
             text-transform: uppercase;
             transition: 0.3s;
         }
@@ -83,6 +89,7 @@
             transition: 0.3s;
         }
     </style>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body>
 
@@ -107,7 +114,7 @@
         
       </td>
       <td>
-        <input type="text" name="number"  maxlength="11" onkeyup="handlePhone(event)" id="number"  placeholder="Numero">
+        <input type="text" name="number"  maxlength="9" onkeyup="handlePhone(event)" id="number"  placeholder="Número">
       </td>
     </tr>
 
@@ -125,7 +132,7 @@
     </tr>
     <tr>
       <td colspan="2">
-        <button type="button" onclick="generateLink()">Gerar/Copiar</button>
+        <button type="button" class="btn btn-info" onclick="generateLink()"><i class="glyphicon glyphicon-copy"></i> Gerar/Copiar</button>
       </td>
     </tr>
 
