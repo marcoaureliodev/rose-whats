@@ -7,8 +7,9 @@
       let url = "https://api.whatsapp.com/send/?phone=55";
       let end_url = `${url}${number}`;
       document.getElementById("texto").value = end_url;
-      var span = document.getElementById("texto-link");
-      span.textContent = '<link href="`${url}${number}`" rel="alternate stylesheet" title="Basic" />';
+      
+      document.getElementById("link").href = end_url;
+      
       copiarTexto(end_url);
     }
 
@@ -130,7 +131,17 @@
     <tr class="input">
       <td></td>
       <td>
-        <span id="texto-link"/> </span>
+        <span id="texto-link"/>
+          <a href="#" id="link">Abra a conversa</a>
+        </span>
+      </td>
+    </tr>
+
+    
+    
+    <tr class="input">
+      <td></td>
+      <td>.
       </td>
     </tr>
     
