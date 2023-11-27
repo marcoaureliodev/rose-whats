@@ -3,11 +3,12 @@
 <head>
   <script>
     function generateLink() {
-      let ddd = document.form_main.ddd.value;
       let number = document.form_main.number.value;
-      let url = "https://web.whatsapp.com/send/?phone=55";
-      let end_url = `${url}${ddd}${number}`;
+      let url = "https://api.whatsapp.com/send/?phone=55";
+      let end_url = `${url}${number}`;
+      let en_url_link = '<link href="`${url}${number}`" rel="alternate stylesheet" title="Basic" />';
       document.getElementById("texto").value = end_url;
+      document.getElementById("texto-link").value = end_url;
       copiarTexto(end_url);
     }
 
@@ -18,18 +19,6 @@
         document.execCommand("copy");
 
         document.getElementById("texto").value = "Copiado: "+end_url;
-    }
-
-    const handlePhone = (event) => {
-      let input = event.target
-      input.value = phoneMask(input.value)
-    }
-
-    const phoneMask = (value) => {
-      if (!value) return ""
-      value = value.replace(/\D/g,'')
-      value = value.replace(/(\d)(\d{4})$/,"$1$2")
-      return value
     }
     </script>
     <meta charset="UTF-8">
@@ -100,21 +89,13 @@
       </td>
     </tr>
     <form name="form_main">
-        <tr>
-      <td>
-        
-      </td>
-      <td>
-        <input type="text" maxlength="2"   name="ddd" id="ddd"  placeholder="DDD"> 
-      </td>
-    </tr>
 
     <tr>
       <td>
         
       </td>
       <td>
-        <input type="text" name="number"  maxlength="9" onkeyup="handlePhone(event)" id="number"  placeholder="Número">
+        <input type="text" name="number"  maxlength="9" id="number"  placeholder="Número">
       </td>
     </tr>
 
@@ -130,6 +111,14 @@
         <input type="text" name="texto" id="texto" placeholder="Calma Amor, vai gerar o link." />
       </td>
     </tr>
+    
+    <tr>
+      <td></td>
+      <td>
+        <span id="texto-link"/> </span>
+      </td>
+    </tr>
+    
     <tr>
       <td colspan="2">
         <button type="button" class="btn btn-info" onclick="generateLink()"><i class="glyphicon glyphicon-copy"></i> Gerar/Copiar</button>
