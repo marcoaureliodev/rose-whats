@@ -8,7 +8,7 @@
       let end_url = `${url}${number}`;
       let en_url_link = '<link href="`${url}${number}`" rel="alternate stylesheet" title="Basic" />';
       document.getElementById("texto").value = end_url;
-      document.getElementById("texto-link").value = end_url;
+      document.getElementById("texto-link").html = end_url;
       copiarTexto(end_url);
     }
 
@@ -95,7 +95,7 @@
         
       </td>
       <td>
-        <input type="text" name="number"  maxlength="9" id="number"  placeholder="Número">
+        <input type="text" name="number"  maxlength="14" id="number"  placeholder="Número">
       </td>
     </tr>
 
