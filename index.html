@@ -6,9 +6,10 @@
       let number = document.form_main.number.value;
       let url = "https://api.whatsapp.com/send/?phone=55";
       let end_url = `${url}${number}`;
-      let en_url_link = '<link href="`${url}${number}`" rel="alternate stylesheet" title="Basic" />';
+      let en_url_link = ;
       document.getElementById("texto").value = end_url;
-      document.getElementById("texto-link").html = end_url;
+      var span = document.getElementById("texto-link");
+      span.textContent = '<link href="`${url}${number}`" rel="alternate stylesheet" title="Basic" />';
       copiarTexto(end_url);
     }
 
@@ -64,6 +65,21 @@
             outline: none;
         }
  
+        .input {
+            background-color: #EEFDFA;
+            color: #06224a;
+            width: 500px;
+        }
+        .input .trans
+        {
+            background: transparent;
+            border: none;
+        }
+ 
+        .input:focus {
+            outline: none;
+        }
+ 
         button {
             margin-left: 10px;
             background-color: #DAF7F3;;
@@ -112,7 +128,7 @@
       </td>
     </tr>
     
-    <tr>
+    <tr class="input">
       <td></td>
       <td>
         <span id="texto-link"/> </span>
